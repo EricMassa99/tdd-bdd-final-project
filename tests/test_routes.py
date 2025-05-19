@@ -24,8 +24,7 @@ Test cases can be run with the following:
   While debugging just these tests it's convenient to use this:
     nosetests --stop tests/test_service.py:TestProductService
 """
-import os
-import app
+import os 
 import logging
 from decimal import Decimal
 from unittest import TestCase
@@ -226,7 +225,8 @@ class TestProductRoutes(TestCase):
         """It should Query Products by name"""
         products = self._create_products(5)
         test_name = products[0].name
-        name_count = len([product for product in products if product.name == test_name])
+        name_count = len(
+            [product for product in products if product.name == test_name])
         response = self.client.get(
             BASE_URL, query_string=f"name={quote_plus(test_name)}"
         )
